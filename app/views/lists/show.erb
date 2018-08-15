@@ -18,8 +18,10 @@
   <% end %>
 <% end %>
 
-<form action="/tasks/new" method="POST">
-  <input type="text" name="task[name]" placeholder="enter new task" />
-  <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
-  <input type="submit" value="Add Task" />
-</form>
+<% if @list.user == @user %>
+  <form action="/tasks/new" method="POST">
+    <input type="text" name="task[name]" placeholder="New Task" />
+    <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
+    <input type="submit" value=" + " />
+  </form>
+<% end %>
