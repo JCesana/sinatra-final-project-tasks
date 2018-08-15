@@ -15,10 +15,8 @@ class ListsController < ApplicationController
   end
 
   post '/lists' do
-    binding.pry
     @user = current_user(session)
     @list = List.new(params)
-    binding.pry
 
     if @list.valid?
       @list.save
@@ -29,7 +27,6 @@ class ListsController < ApplicationController
   end
 
   get '/lists/:slug' do
-    binding.pry
     @list = List.find_by_slug(params[:slug])
 
     erb :"/lists/show"
