@@ -1,0 +1,11 @@
+<h3>List</h3>
+
+<h3>By: <%= @list.user.namne %></h3>
+
+<h3>List Name: <%= @list.name  %></h3>
+
+<% @list.tasks.each do |task| %>
+  <p>
+    <%= task.name %>
+  </p>
+<% end %>
