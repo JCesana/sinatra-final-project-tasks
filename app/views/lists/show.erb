@@ -6,10 +6,20 @@
 
 <h3>By: <a href="/users/<%= @list.user.slug %>"><%= @list.user.username %></a></h3>
 
-<br />
-
-<% @list.tasks.each do |task| %>
+<% if @list.tasks.count == 0 %>
   <p>
-    <%= task.name %>
+    No tasks yet - add one now!
   </p>
+<% else %>
+  <% @list.tasks.each do |task| %>
+    <p>
+      <%= task.name %>
+    </p>
+  <% end %>
 <% end %>
+
+<form action="/tasks/new" method="POST">
+  <input type="text" name="task[name]" placeholder="enter new task" />
+  <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
+  <input type="submit" value="Add Task" />
+</form>

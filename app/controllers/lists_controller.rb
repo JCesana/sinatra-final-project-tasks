@@ -51,7 +51,7 @@ class ListsController < ApplicationController
       @list = List.find_by_slug(params[:slug])
       @list.update(params[:list])
       @list.save
-
+      
       redirect "/lists/#{@list.slug}"
     else
       redirect "/lists/#{@list.slug}/edit"
