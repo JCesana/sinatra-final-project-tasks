@@ -1,5 +1,5 @@
 <h1>Lists</h1>
 
-<% @user.lists.each do |list| %>
-  <h3><%= list.name %></h3>
+<% List.all.each do |list| %>
+  <h3><a href="lists/<%= list.slug %>"><%= list.name %></a></h3>
 <% end %>

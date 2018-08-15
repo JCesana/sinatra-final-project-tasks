@@ -9,7 +9,7 @@ class List < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     self.all.detect do |list|
-      user.slug == slug
+      list.slug == slug
     end
   end
 end

@@ -1,9 +1,7 @@
 class ListsController < ApplicationController
 
   get '/lists/:slug' do
-    binding.pry
     @list = List.find_by_slug(params[:slug])
-    binding.pry
 
     erb :"/lists/show"
   end
