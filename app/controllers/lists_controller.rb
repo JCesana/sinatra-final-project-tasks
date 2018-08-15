@@ -15,7 +15,15 @@ class ListsController < ApplicationController
   end
 
   post '/lists' do
-    binding.pry 
+    @user = current_user(session)
+    list = List.new(params)
+
+    if list.valid?
+      list.save
+      redirect "users/#{@user.slug}"
+    else
+      redirect "/lists/new"
+    end
   end
 
 end

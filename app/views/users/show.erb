@@ -1,0 +1,5 @@
+<h1><%= @user.username %> Tweets</h1>
+
+<% @user.lists.each do |list| %>
+  <h3><%= list.name %></h3>
+<% end %>
