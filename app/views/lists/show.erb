@@ -1,8 +1,10 @@
 <h3><%= @list.name  %></h3>
 
-<p>
-  <a href="/lists/<%= @list.slug %>/edit">Edit Title</a>
-</p>
+<% if @list.user == @user %>
+  <p>
+    <a href="/lists/<%= @list.slug %>/edit">Edit Title</a>
+    <br />
+<% end %>
 
 <h3>By: <a href="/users/<%= @list.user.slug %>"><%= @list.user.username %></a></h3>
 
@@ -23,5 +25,13 @@
     <input type="text" name="task[name]" placeholder="New Task" />
     <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
     <input type="submit" value=" + " />
+  </form>
+
+  <br />
+  <br />
+
+  <form method="post" action="/lists/<%= @list.slug %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete List">
   </form>
 <% end %>

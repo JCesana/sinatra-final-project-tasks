@@ -38,7 +38,7 @@ class ListsController < ApplicationController
   get '/lists/:slug' do
     @list = List.find_by_slug(params[:slug])
     @user = current_user(session)
-    
+
     erb :"/lists/show"
   end
 
@@ -58,6 +58,16 @@ class ListsController < ApplicationController
       redirect "/lists/#{@list.slug}/edit"
     end
 
+  end
+
+  delete "/lists/:slug" do
+    @list = List.find_by_slug(params[:slug])
+
+    if @list.user == current_user(session)
+      @list.destroy
+    end
+
+    redirect "/users/#{@list.user.slug}"
   end
 
 end
