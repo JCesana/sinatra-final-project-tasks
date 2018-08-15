@@ -1,11 +1,5 @@
 class ListsController < ApplicationController
 
-  get '/lists/:slug' do
-    @list = List.find_by_slug(params[:slug])
-
-    erb :"/lists/show"
-  end
-
   get '/lists' do
     redirect_if_not_logged_in
     @user = current_user(session)
@@ -21,8 +15,10 @@ class ListsController < ApplicationController
   end
 
   post '/lists' do
+    binding.pry
     @user = current_user(session)
     @list = List.new(params)
+    binding.pry
 
     if @list.valid?
       @list.save
@@ -30,6 +26,13 @@ class ListsController < ApplicationController
     else
       redirect "/lists/new"
     end
+  end
+
+  get '/lists/:slug' do
+    binding.pry
+    @list = List.find_by_slug(params[:slug])
+
+    erb :"/lists/show"
   end
 
 end

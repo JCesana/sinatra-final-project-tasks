@@ -3,6 +3,6 @@
 <form method="POST" action="/lists">
   <label for="name">List Name:</label>
   <input type="text" id="name" name="name" />
-
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
   <input type="submit" value="Submit" />
 </form>
