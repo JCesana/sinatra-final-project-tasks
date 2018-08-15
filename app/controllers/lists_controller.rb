@@ -1,7 +1,10 @@
 class ListsController < ApplicationController
 
   get '/lists' do
-    " /lists Page "
+    redirect_if_not_logged_in
+    @user = current_user
+
+    erb :lists
   end
 
 end
