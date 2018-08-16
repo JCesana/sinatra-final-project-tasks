@@ -1,5 +1,9 @@
 <h1>Lists</h1>
 
 <% List.all.each do |list| %>
-  <h3><a href="lists/<%= list.slug %>"><%= list.name %></a></h3>
+  <h3><a href="lists/<%= list.slug %>"><%= list.name %></a> by <%= list.user.username %></h3>
 <% end %>
+
+<p>
+  <a href="/lists/new">New List</a>
+</p>
