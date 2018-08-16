@@ -1,9 +1,10 @@
-<h1>Lists</h1>
+  <h3>Lists</h3>
 
-<% List.all.each do |list| %>
-  <h3><a href="lists/<%= list.slug %>"><%= list.name %></a> by <%= list.user.username %></h3>
-<% end %>
-
-<p>
-  <a href="/lists/new">New List</a>
-</p>
+  <% List.all.each do |list| %>
+    <h2><a href="lists/<%= list.slug %>"><%= list.name %></a></h2>
+    <p>by <a class="pure-button-primary" href="/users/<%= list.user.slug %>"><%= list.user.username %></a></p>
+    <br />
+  <% end %>
+  <p>
+    <a href="/lists/new">New List</a>
+  </p>

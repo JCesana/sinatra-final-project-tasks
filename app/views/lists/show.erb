@@ -12,7 +12,7 @@
 
   <% if @list.tasks.count == 0 %>
     <p>
-      No tasks yet - add one now!
+      No tasks yet<% if @list.user == @user %> - add one now! <% end %>
     </p>
   <% else %>
     <% @list.tasks.each do |task| %>

@@ -1,9 +1,36 @@
 <!doctype html>
 <html>
   <head>
-    <title>Tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task Buddy</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
+
   <body>
-    <%= yield %>
+    <!-- <div class="header"> -->
+      <div class="pure-menu pure-menu-horizontal">
+        <a class="pure-menu-heading white-text" href="/lists">Task Buddy</a>
+
+        <ul class="pure-menu-list right">
+          <!-- <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li> -->
+          <% if logged_in?(session) %>
+
+            <li class="pure-menu-item "><a href="/logout" class="pure-menu-link white-text">Log Out</a></li>
+            <li class="pure-menu-item"><a href="/lists/new" class="pure-menu-link white-text">NEW LIST</a></li>
+            <li class="pure-menu-item"><a href="/users/<%= @user.slug %>" class="pure-menu-link white-text"><%= @user.username %></a></li>
+
+          <% else %>
+          <li class="pure-menu-item"><a href="/signup" class="pure-menu-link white-text">Signup</a></li>
+          <li class="pure-menu-item"><a href="/login" class="pure-menu-link white-text">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+
+    </div>
   </body>
 </html>
