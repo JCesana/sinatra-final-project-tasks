@@ -1,0 +1,91 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+ h2 {
+ 		text-align: center;
+ }
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+}
+
+.is-center {
+    text-align: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.outline {
+	border: 1px solid black;
+}
+
+/* We want to give the content area some more padding */
+.content {
+    padding: 1em 1em 3em;
+}
+
+.vertical-center {
+	margin: auto auto;
+	background: #ccc;
+}
+
+.right {
+	float: right;
+}
+
+.pure-menu-horizontal {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.pure-menu-horizontal .pure-menu-list {
+    display: inline-block;
+}
+
+.pure-menu-horizontal .pure-menu-item,
+.pure-menu-horizontal .pure-menu-heading,
+.pure-menu-horizontal .pure-menu-separator {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.pure-menu-horizontal {
+	background: rgb(0, 120, 231);
+}
+
+.pure-menu-item a:hover{
+	background: rgb(0, 108, 209);
+}
+
+.white-text {
+	color: #fff;
+}
