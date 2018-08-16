@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
     erb :'/tasks/edit'
   end
-
+  
   patch "/tasks/:slug" do
     redirect_if_not_logged_in
     @user = current_user(session)
