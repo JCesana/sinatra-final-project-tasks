@@ -8,17 +8,32 @@
 
 <h3>By: <a href="/users/<%= @list.user.slug %>"><%= @list.user.username %></a></h3>
 
-<% if @list.tasks.count == 0 %>
-  <p>
-    No tasks yet - add one now!
-  </p>
-<% else %>
-  <% @list.tasks.each do |task| %>
+<div>
+
+  <% if @list.tasks.count == 0 %>
     <p>
-      <%= task.name %>
+      No tasks yet - add one now!
     </p>
+  <% else %>
+    <% @list.tasks.each do |task| %>
+      <p>
+        <%= task.name %>
+        <% if @list.user == @user %>
+          <form method="GET" action="/tasks/<%= task.slug %>/edit">
+            <input type="submit" value="EDIT" />
+          </form>
+          <form method="POST" action="/tasks/<%= task.slug %>">
+            <input id="hidden" type="hidden" name="_method" value="DELETE" />
+            <input type="submit" value="X" />
+          </form>
+        <% end %>
+
+        <br />
+      </p>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
 
 <% if @list.user == @user %>
   <form action="/tasks/new" method="POST">
@@ -30,7 +45,7 @@
   <br />
   <br />
 
-  <form method="post" action="/lists/<%= @list.slug %>">
+  <form method="POST" action="/lists/<%= @list.slug %>">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete List">
   </form>

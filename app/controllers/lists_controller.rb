@@ -64,7 +64,7 @@ class ListsController < ApplicationController
     @list = List.find_by_slug(params[:slug])
 
     if @list.user == current_user(session)
-      @list.destroy
+      @list.destroy if @list
     end
 
     redirect "/users/#{@list.user.slug}"
