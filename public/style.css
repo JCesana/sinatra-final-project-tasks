@@ -17,13 +17,53 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color: #333;
 }
 
- h2 {
- 		text-align: center;
- }
+h2 {
+	text-align: center;
+}
 
+a:link {
+ text-decoration: none;
+ color: #333;
+ } /* Unvisited link. */
+
+a:visited {
+ color: #333;
+ } /* Visited links. */
+
+a:hover {
+ text-decoration: underline;
+ } /* The user mouses over a link. */
+
+a:focus { } /* The user clicks on a link. */
+
+a:active { } /* The user has clicked a link. */
+
+button[type="submit"] {
+	margin: 1em 1em;
+}
+
+form.change {
+  font-weight: bold;
+  margin: 0 2em;
+}
+
+table.list-table {
+  align: center;
+  cellpadding: 100;
+  text-alight: middle;
+}
+
+.wrapper {
+   margin: 50px auto 0;
+   width: 500px;
+}
+
+.outline {
+	border: 1px solid red;
+}
 .clearfix:after {
     content: ".";
     display: block;
@@ -35,20 +75,12 @@ label {
 
 .is-center {
     text-align: center;
-}
-
-.wrapper {
-    margin: 0 auto;
-    width: 500px;
+    justify-content: center;
+    align-items: center;
 }
 
 .outline {
 	border: 1px solid black;
-}
-
-/* We want to give the content area some more padding */
-.content {
-    padding: 1em 1em 3em;
 }
 
 .vertical-center {
@@ -86,6 +118,34 @@ label {
 	background: rgb(0, 108, 209);
 }
 
-.white-text {
+li a.white-text {
 	color: #fff;
+}
+
+div a.white-text {
+	color: #fff;
+}
+
+.user {
+	text-transform: uppercase;
+	fond-weight: bold;
+	color: #7f8c8d;
+}
+
+div a.list-title {
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+p.task-item {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #666666;
+  padding-right: 1.5em;
+  text-align: left;
+}
+
+.lists-entry {
+	margin: 2.5em auto;
+  line-height: .75em;
 }

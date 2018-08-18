@@ -12,21 +12,23 @@ class TasksController < ApplicationController
     end
   end
 
-  get '/tasks/:slug/edit' do
+  get '/tasks/:id/edit' do
+    @user = current_user(session)
     redirect_if_not_logged_in
-    @task = Task.find_by_slug(params[:slug])
+
+    @task = Task.find_by_id(params[:id])
 
     erb :'/tasks/edit'
   end
-  
-  patch "/tasks/:slug" do
-    redirect_if_not_logged_in
+
+  patch "/tasks/:id" do
     @user = current_user(session)
+    redirect_if_not_logged_in
 
     valid_task = Task.new(params[:task])
 
     if valid_task.valid?
-      @task = Task.find_by_slug(params[:slug])
+      @task = Task.find_by_id(params[:id])
       @task.update(params[:task])
       @task.save
 
@@ -37,9 +39,11 @@ class TasksController < ApplicationController
 
   end
 
-  delete "/tasks/:slug" do
+  delete "/tasks/:id" do
+    @user = current_user(session)
     redirect_if_not_logged_in
-    @task = Task.find_by_slug(params[:slug])
+
+    @task = Task.find_by_id(params[:id])
 
     if @task.list.user == current_user(session)
       @task.destroy if @task

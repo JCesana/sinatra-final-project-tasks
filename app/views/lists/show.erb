@@ -1,4 +1,5 @@
-<h3><%= @list.name  %></h3>
+
+<h2><%= @list.name  %></h2>
 
 <% if @list.user == @user %>
   <p>
@@ -8,32 +9,44 @@
 
 <h3>By: <a href="/users/<%= @list.user.slug %>"><%= @list.user.username %></a></h3>
 
-<div>
-
   <% if @list.tasks.count == 0 %>
     <p>
       No tasks yet<% if @list.user == @user %> - add one now! <% end %>
     </p>
   <% else %>
+    <table>
+
     <% @list.tasks.each do |task| %>
-      <p>
-        <%= task.name %>
+      <tr>
+
+        <td>
+          <p>
+            <%= task.name %>
+          </p>
+        </td>
         <% if @list.user == @user %>
-          <form method="GET" action="/tasks/<%= task.slug %>/edit">
+        <td>
+          <form method="GET" action="/tasks/<%= task.id %>/edit">
             <input type="submit" value="EDIT" />
           </form>
-          <form method="POST" action="/tasks/<%= task.slug %>">
+        </td>
+        <td>
+
+          <form method="POST" action="/tasks/<%= task.id %>">
             <input id="hidden" type="hidden" name="_method" value="DELETE" />
             <input type="submit" value="X" />
           </form>
-        <% end %>
+        </td>
 
+        <% end %>
         <br />
-      </p>
+
+      </tr>
     <% end %>
+
+    </table>
   <% end %>
 
-</div>
 
 <% if @list.user == @user %>
   <form action="/tasks/new" method="POST">
@@ -41,9 +54,6 @@
     <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
     <input type="submit" value=" + " />
   </form>
-
-  <br />
-  <br />
 
   <form method="POST" action="/lists/<%= @list.slug %>">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
