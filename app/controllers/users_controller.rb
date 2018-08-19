@@ -1,10 +1,11 @@
-require 'rack-flash' 
+require 'rack-flash'
 
 class UsersController < ApplicationController
   use Rack::Flash
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug].downcase)
+    redirect_if_not_logged_in
 
     erb :'/users/show'
   end
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/lists'
     else
+      flash[:warning] = "All fields must be filled out."
       redirect '/login'
     end
   end
