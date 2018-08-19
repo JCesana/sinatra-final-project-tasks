@@ -1,4 +1,4 @@
-require 'rack-flash' 
+require 'rack-flash'
 
 class TasksController < ApplicationController
   use Rack::Flash
@@ -11,6 +11,7 @@ class TasksController < ApplicationController
       @task.save
       redirect "lists/#{@task.list.slug}"
     else
+      flash[:warning] = "Task name cannot be blank."
       redirect "lists/#{@task.list.slug}"
     end
   end
