@@ -1,8 +1,4 @@
-require 'rack-flash'
-
 class TasksController < ApplicationController
-  use Rack::Flash
-
   post '/tasks/new' do
     @user = current_user(session)
     @task = Task.new(params[:task])
