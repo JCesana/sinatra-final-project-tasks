@@ -59,7 +59,8 @@ class ListsController < ApplicationController
 
       redirect "/lists/#{@list.slug}"
     else
-      redirect "/lists/#{@list.slug}/edit"
+      flash[:warning] = "List name cannot be blank."
+      redirect "/users/#{@user.slug}"
     end
 
   end
