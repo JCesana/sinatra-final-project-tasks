@@ -1,4 +1,4 @@
-require 'rack-flash' 
+require 'rack-flash'
 
 class ListsController < ApplicationController
   use Rack::Flash
@@ -25,6 +25,7 @@ class ListsController < ApplicationController
       @list.save
       redirect "lists/#{@list.slug}"
     else
+      flash[:warning] = "List name cannot be blank."
       redirect "/lists/new"
     end
   end
