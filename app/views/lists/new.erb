@@ -1,8 +1,7 @@
   <h2>New List</h2>
 
   <form method="POST" action="/lists">
-    <label for="name" class="label">List Name:</label>
-    <input type="text" id="name" name="name" />
+    <input type="text" id="name" name="name" placeholder="List Name">
     <input type="hidden" name="user_id" value="<%= @user.id %>">
     <input type="submit" value="Submit" />
   </form>
