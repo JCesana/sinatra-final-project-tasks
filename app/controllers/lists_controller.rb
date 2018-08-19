@@ -1,8 +1,4 @@
-require 'rack-flash'
-
 class ListsController < ApplicationController
-  use Rack::Flash
-
   get '/lists' do
     redirect_if_not_logged_in
     @user = current_user(session)
