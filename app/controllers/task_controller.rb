@@ -38,6 +38,7 @@ class TasksController < ApplicationController
 
       redirect "/lists/#{@task.list.slug}"
     else
+      flash[:warning] = "Task name cannot be blank."
       redirect "/users/#{@user.slug}"
     end
 
