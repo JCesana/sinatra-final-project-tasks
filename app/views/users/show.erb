@@ -1,14 +1,16 @@
-<div class="is-center">
+<h2><%= @user.username %>'s Lists</h2>
 
-  <h1><%= @user.username %></h1>
-  <h3>Lists:</h3>
+<div class="main-list-container">
 
-  <% if @user.lists.count == 0 %>
-    <h3>No created lists yet.</h3>
-  <% else  %>
-    <% @user.lists.each do |list| %>
-      <h3><a href="../lists/<%= list.slug %>"><%= list.name %></a></h3>
-    <% end %>
+<% if @user.lists.count == 0 %>
+  <p>No created lists yet.</p>
+<% else  %>
+  <% @user.lists.each do |list| %>
+    <p>
+      <a href="../lists/<%= list.slug %>" class="main-list-entry"><%= list.name %></a>
+    </p>
+    <br />
   <% end %>
+<% end %>
 
 </div>

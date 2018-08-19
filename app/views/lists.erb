@@ -1,11 +1,15 @@
   <h2>Buddy's Lists</h2>
 
+  <div class="main-list-container">
 
   <% List.all.each do |list| %>
-    <div>
-        <a href="lists/<%= list.slug %>"><%= list.name %></a>
-        <p>
-          by <a href="/users/<%= list.user.slug %>"><%= list.user.username %></a>
-        </p>
-    </div>
+    <span>
+      <a href="lists/<%= list.slug %>" class="main-list-entry"><%= list.name %></a>
+        <span class="nowrap">
+          <p class="list">by <a href="/users/<%= list.user.slug %>" class="main-list-user"><%= list.user.username %></a></p>
+        </span>
+      <br>
+    </span>
   <% end %>
+
+</div>

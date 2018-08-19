@@ -1,32 +1,31 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Task Buddy</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
 
   <body>
-
-        <a href="/lists">Task Buddy</a>
-
-        <ul>
-
+    <div class="header">
+      <a href="/lists" class="logo">Task Buddy</a>
+        <div class="header-right">
           <% if logged_in?(session) %>
-
-            <li><a href="/logout">Log Out</a></li>
-            <li><a href="/lists/new">NEW LIST</a></li>
-            <li><a href="/users/<%= @user.slug %>"><%= @user.username %></a></li>
-
+            <a href="/logout">Log Out</a>
+            <a href="/lists/new">NEW LIST</a>
+            <a href="/users/<%= @user.slug %>"><%= @user.username %></a>
           <% else %>
-          <li><a href="/signup">Signup</a></li>
-          <li><a href="/login">Login</a></li>
+            <a href="/signup">Signup</a>
+            <a href="/login">Login</a>
           <% end %>
-        </ul>
-
-      <div>
-        <%= yield %>
       </div>
-
     </div>
+
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+
+
   </body>
+
 </html>

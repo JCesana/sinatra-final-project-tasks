@@ -2,19 +2,20 @@
 <h2><%= @list.name  %></h2>
 
 <% if @list.user == @user %>
-  <p>
+  <div class="edit-caption">
     <a href="/lists/<%= @list.slug %>/edit">Edit Title</a>
     <br />
+  </div>
 <% end %>
 
-<h3>By: <a href="/users/<%= @list.user.slug %>"><%= @list.user.username %></a></h3>
+<p class="by-center">By: <a href="/users/<%= @list.user.slug %>" class="main-list-user"><%= @list.user.username %></a></p>
 
   <% if @list.tasks.count == 0 %>
-    <p>
+    <p class="no-tasks">
       No tasks yet<% if @list.user == @user %> - add one now! <% end %>
     </p>
   <% else %>
-    <table>
+    <table class="tasks">
 
     <% @list.tasks.each do |task| %>
       <tr>
@@ -39,7 +40,7 @@
         </td>
 
         <% end %>
-        <br />
+
 
       </tr>
     <% end %>
@@ -50,13 +51,13 @@
 
 <% if @list.user == @user %>
   <form action="/tasks/new" method="POST">
-    <input type="text" name="task[name]" placeholder="New Task" />
+    <input type="text" name="task[name]" placeholder="New Task" class="new-task">
     <input type="hidden" name="task[list_id]" value="<%= @list.id %>" >
-    <input type="submit" value=" + " />
+    <input type="submit" value="ADD TASK " />
   </form>
 
   <form method="POST" action="/lists/<%= @list.slug %>">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete List">
+    <input type="submit" value=" DELETE LIST ">
   </form>
 <% end %>

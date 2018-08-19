@@ -1,11 +1,11 @@
 <h3>Edit List Title</h3>
 
-<form action="/lists/<%= @list.slug %>" method="POST">
+<form action="/lists/<%= @list.slug %>" method="POST" class="edit">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <input type="text" name="list[name]" value="<%= @list.name %>" id="name">
   <input type="hidden" name="list[user_id]" value="<%= @list.user.id %>">
   <br />
 
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Submit" class="center">
 </form>

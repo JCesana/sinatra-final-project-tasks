@@ -1,0 +1,172 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+h2, h3 {
+  text-align: center;
+  margin: 50px 0 20px 0
+}
+
+table.tasks {
+  margin: 0 0 0 40%;
+}
+.header {
+  overflow: hidden;
+  background-color: dodgerblue;
+  padding: 10px 10px;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 6px 10px;
+  text-decoration: none;
+  font-size: 15px;
+
+  line-height: 20px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #0073e6;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+div.main-list-container {
+  margin: 10% 0 0 43%;
+}
+
+p.list {
+  margin: 0 0 0 0;
+}
+
+.main-list-container a {
+  text-decoration: none;
+  color: darkslategray;
+}
+
+.main-list-container a:hover {
+  text-decoration: underline;
+}
+
+.main-list-right {
+
+}
+
+.main-list-entry {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.main-list-user {
+  text-transform: uppercase;
+  color: gray;
+  font-size: .8em;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.edit-caption {
+  text-align: center;
+  font-size: .7em;
+}
+
+.edit-caption a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: darkgray;
+  font-weight: bold;
+}
+
+.edit-caption a:hover {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: darkgray;
+  font-weight: bold;
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 25%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#password {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 25%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+input.new-task {
+    width: 40%;
+    padding: 8px 16px;
+    margin: 8px 35%;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+input[type=submit] {
+  margin: 10px 45%;
+  font-size: 20px;
+}
+
+button[type=submit] {
+  margin: 10px 45%;
+  font-size: 20px;
+}
+
+label {
+  margin: 20% 0 0 25%;
+}
+
+.outline {
+  border: 1px solid black;
+}
+
+.by-center, .no-tasks {
+  text-align: center;
+}
