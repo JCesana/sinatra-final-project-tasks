@@ -25,6 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/lists"
     else
+      flash[:warning] = "All fields must be filled out."
       redirect "/signup"
     end
   end
