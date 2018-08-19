@@ -33,7 +33,6 @@ class ListsController < ApplicationController
   get '/lists/:slug/edit' do
     redirect_if_not_logged_in
     @user = current_user(session)
-
     @list = List.find_by_slug(params[:slug])
 
     erb :"/lists/edit"
