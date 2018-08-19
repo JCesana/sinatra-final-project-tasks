@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/lists"
     else
-      flash[:warning] = "All fields must be filled out."
+      session[:"__FLASH__"][:warning] = "All fields must be filled out."
       redirect "/signup"
     end
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/lists'
     else
-      flash[:warning] = "All fields must be filled out."
+      session[:"__FLASH__"][:warning] = "Please try again. Incorrect login or empty field."
       redirect '/login'
     end
   end
